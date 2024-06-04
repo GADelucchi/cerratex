@@ -46,5 +46,5 @@ const specs = swaggerJsDoc(swaggerOptions)
 
 // Rutas
 app.use('/docs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs))
-app.use(`/static`, express.static(__dirname + `/public`))
+app.use(express.static(path.join(__dirname, 'public_html', 'frontend')))
 app.use(routerServer)
