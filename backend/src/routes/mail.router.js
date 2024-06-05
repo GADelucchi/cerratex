@@ -26,7 +26,7 @@ class MailRouter extends RouterClass {
   
           mailContent += '</ul>'
 
-        sendMail('gdelucchi@me.com', 'Nuevo pedido realizado', mailContent)
+        sendMail('ventas@cerratex.com.ar', 'Nuevo pedido realizado', mailContent)
 
         res.sendSuccess('Correo enviado')
       } catch (error) {

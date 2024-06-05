@@ -14,7 +14,9 @@
   <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -50,7 +52,7 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="../img/interior/100.png" alt="">
+                  <img src="../img/interior/100.png" alt="" id="img-100">
                 </div>
 
                 <!--<div class="swiper-slide">
@@ -65,18 +67,28 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>Art. 100</h3>
+              <h3 id="artId-100">Art. 100</h3>
               <ul>
-                <li><strong>Categoría</strong>: Interior</li>
-                <li><strong>Caja</strong>: 50 X 40 MM</li>
-                <li><strong>Embalaje</strong>:  CAJA DE 1 U.</li>
-                <li><a href="#"><strong><i class="bx bx-cart"></i> Agregar al Carrito</strong></a></li>
+                <li>
+                  <strong>Categoría:</strong> Interior
+                </li>
+                <li>
+                  <strong>Caja:</strong> 50 X 40 MM
+                </li>
+                <li>
+                  <strong>Embalaje:</strong> CAJA DE 1 U.
+                </li>
+                <li>
+                  <a href="#" title="Añadir al carrito" id="addToCart">
+                    <strong id="prod-100">Agregar al Carrito</strong>
+                  </a>
+                </li>
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2>Manija (Trabapuerta) de Baño</h2>
+              <h2 id="artName-100">Manija (Trabapuerta) de Baño</h2>
               <p>
-                
+
 
               </p>
             </div>
@@ -89,7 +101,8 @@
 
   </main><!-- End #main -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="../vendor/purecounter/purecounter_vanilla.js"></script>
@@ -101,6 +114,7 @@
 
   <!-- Template Main JS File -->
   <script src="../js/main.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </body>
 

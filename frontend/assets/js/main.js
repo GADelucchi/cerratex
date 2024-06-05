@@ -27,11 +27,11 @@ function eventInitializer() {
     button.onclick = (event) => {
       event.preventDefault();
       let id = button.children[0].id.split('-')[1]; // Obtener el ID del producto
-      // console.log(id);
+      console.log(id);
       let name = document.getElementById(`artName-${id}`).innerHTML // Obtener el nombre del producto
       // console.log(name);
       let photoPath = document.getElementById(`img-${id}`).attributes[0].nodeValue // Obtener el dirección donde se guarda la imagen del producto
-      // console.log(photoSrc);
+      console.log(photoPath);
       addProductToCart(id, name, photoPath);
       Toastify({
         text: "Producto agregado",
