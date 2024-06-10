@@ -14,7 +14,7 @@ class Product {
   }
 }
 
-// Funciones
+// Functions
 function elementInitializer() {
   addToCartButtons = document.querySelectorAll('#addToCart');
   productsContainer = document.querySelector('#productsContainer')
