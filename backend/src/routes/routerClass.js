@@ -2,6 +2,7 @@ const { Router } = require("express");
 const jwt = require('jsonwebtoken');
 const { logger } = require("../config/logger");
 const { jwtPrivateKey } = require("../../process/config");
+const cors = require('cors')
 
 class RouterClass {
     constructor() {
@@ -44,7 +45,6 @@ class RouterClass {
         req.user = user
         next()
     }
-    
 
     get(path, policies, ...callbacks) {
         this.router.get(path, this.handlePolicies(policies), this.generateCustomResponse, this.applyCallbacks(callbacks))

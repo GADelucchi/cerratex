@@ -90,16 +90,16 @@ function sendMail(event) {
 
     fetch('https://www.cerratex.com.ar/api/mail', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
       body: JSON.stringify({
         name: inputName.value,
         lastName: inputLastName.value,
         email: inputEmail.value,
         phoneNumber: inputNumber.value,
         products: productsData
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8'
-      }
+      })
     })
       .then((res) => {
         console.log(res.status, res.statusText);
