@@ -17,7 +17,11 @@ app.set(`views`, __dirname + `/views`)
 app.set(`view engine`, `handlebars`)
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: 'https://cerratex.com.ar',
+    // methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    // headers: ['Content-Type', 'Authorization']
+}));
 app.use(express.urlencoded({ extended: true }))
 app.use(morgan(`dev`))
 

@@ -88,7 +88,7 @@ function sendMail(event) {
       name: product.name
     }))
 
-    fetch('http://localhost:8080/api/mail', {
+    fetch('https://www.cerratex.com.ar/api/mail', {
       method: 'POST',
       body: JSON.stringify({
         name: inputName.value,

@@ -1,6 +1,7 @@
 // Imports
 const { sendMail } = require("../utils/sendMail");
 const { RouterClass } = require("./routerClass");
+const { mailReceiver } = require('../../process/config.js')
 
 // Code
 class MailRouter extends RouterClass {
@@ -26,7 +27,7 @@ class MailRouter extends RouterClass {
   
           mailContent += '</ul>'
 
-        sendMail('ventas@cerratex.com.ar', 'Nuevo pedido realizado', mailContent)
+        sendMail(mailReceiver, 'Nuevo pedido realizado', mailContent)
 
         res.sendSuccess('Correo enviado')
       } catch (error) {
