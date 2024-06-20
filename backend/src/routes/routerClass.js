@@ -1,8 +1,7 @@
-const { Router } = require("express");
+const { Router } = require('express');
 const jwt = require('jsonwebtoken');
-const { logger } = require("../config/logger");
-const { jwtPrivateKey } = require("../../process/config");
-const cors = require('cors')
+const { logger } = require('../config/logger');
+const { jwtPrivateKey } = require('../../process/config');
 
 class RouterClass {
     constructor() {

@@ -27,18 +27,18 @@ function eventInitializer() {
     button.onclick = (event) => {
       event.preventDefault();
       let id = button.children[0].id.split('-')[1]; // Obtener el ID del producto
-      console.log(id);
+      // console.log(id);
       let name = document.getElementById(`artName-${id}`).innerHTML // Obtener el nombre del producto
       // console.log(name);
       let photoPath = document.getElementById(`img-${id}`).attributes[0].nodeValue // Obtener el dirección donde se guarda la imagen del producto
-      console.log(photoPath);
+      // console.log(photoPath);
       addProductToCart(id, name, photoPath);
       Toastify({
-        text: "Producto agregado",
+        text: 'Producto agregado',
         duration: 5000,
         close: true,
-        gravity: "top",
-        position: "right",
+        gravity: 'top',
+        position: 'right',
         stopOnFocus: true,
         style: {
           background: '#99E600'
@@ -57,11 +57,11 @@ function sendMail(event) {
   event.preventDefault()
   if (products.length <= 0) {
     Toastify({
-      text: "No hay productos en el carrito",
+      text: 'No hay productos en el carrito',
       duration: 5000,
       close: true,
-      gravity: "top",
-      position: "right",
+      gravity: 'top',
+      position: 'right',
       stopOnFocus: true,
       style: {
         background: '#E60000'
@@ -72,11 +72,11 @@ function sendMail(event) {
     !inputEmail.value ||
     !inputNumber.value) {
     Toastify({
-      text: "Completá tus datos",
+      text: 'Completá tus datos',
       duration: 5000,
       close: true,
-      gravity: "top",
-      position: "right",
+      gravity: 'top',
+      position: 'right',
       stopOnFocus: true,
       style: {
         background: '#E60000'
@@ -88,10 +88,12 @@ function sendMail(event) {
       name: product.name
     }))
 
-    fetch('https://www.cerratex.com.ar/api/mail', {
+    fetch(
+      'https://www.cerratex.com.ar/api/mail', 
+      {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8'
+        'content-type': 'application/json; charset=UTF-8'
       },
       body: JSON.stringify({
         name: inputName.value,
@@ -102,14 +104,16 @@ function sendMail(event) {
       })
     })
       .then((res) => {
-        console.log(res.status, res.statusText);
-        if (res.status === 200) {
+        console.log(res.status, res.statusText, res);
+
+        if (res.status === 200 ||
+          res.status === 204) {
           Toastify({
-            text: "Correo enviado",
+            text: 'Correo enviado',
             duration: 5000,
             close: true,
-            gravity: "top",
-            position: "right",
+            gravity: 'top',
+            position: 'right',
             stopOnFocus: true,
             style: {
               background: '#99E600'
@@ -123,11 +127,11 @@ function sendMail(event) {
           window.location.reload();
         } else {
           Toastify({
-            text: "Error al enviar el correo",
+            text: 'Error al enviar el correo',
             duration: 5000,
             close: true,
-            gravity: "top",
-            position: "right",
+            gravity: 'top',
+            position: 'right',
             stopOnFocus: true,
             style: {
               background: '#E60000'
@@ -146,10 +150,10 @@ function addProductToCart(id, name, photoPath) {
 
 function createCardInCart() {
   if (productsContainer) {
-    productsContainer.innerHTML = "";
+    productsContainer.innerHTML = '';
     products.forEach((product) => {
-      let column = document.createElement("div");
-      column.className = "col-lg-4 col-sm-5 portfolio-item filter-app m-3";
+      let column = document.createElement('div');
+      column.className = 'col-lg-4 col-sm-5 portfolio-item filter-app m-3';
       column.id = `column-${product.id}`;
       column.innerHTML = `
               <img src="${product.photo}" class="img-fluid" alt="Imagen del producto" id="img-${product.id}">
@@ -191,11 +195,11 @@ function deleteProduct(productId) {
   updateProductsStorage();
 
   Toastify({
-    text: "Producto eliminado",
+    text: 'Producto eliminado',
     duration: 5000,
     close: true,
-    gravity: "top",
-    position: "right",
+    gravity: 'top',
+    position: 'right',
     stopOnFocus: true,
     style: {
       background: '#99E600'
@@ -206,11 +210,11 @@ function deleteProduct(productId) {
 function updateProductsStorage() {
   let productsJSON = JSON.stringify(products);
   localStorage.clear()
-  localStorage.setItem("products", productsJSON);
+  localStorage.setItem('products', productsJSON);
 }
 
 function getProductsStorage() {
-  let productsJSON = localStorage.getItem("products");
+  let productsJSON = localStorage.getItem('products');
   if (productsJSON) {
     products = JSON.parse(productsJSON);
     createCardInCart();
