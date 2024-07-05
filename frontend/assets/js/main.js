@@ -7,10 +7,11 @@ let prodContainer
 
 // Class
 class Product {
-  constructor(id, name, photo) {
+  constructor(id, name, photo, quantity) {
     this.id = id;
     this.name = name;
     this.photo = photo
+    this.quantity = quantity
   }
 }
 
@@ -30,9 +31,11 @@ function eventInitializer() {
       // console.log(id);
       let name = document.getElementById(`artName-${id}`).innerHTML // Obtener el nombre del producto
       // console.log(name);
-      let photoPath = document.getElementById(`img-${id}`).attributes[0].nodeValue // Obtener el dirección donde se guarda la imagen del producto
-      // console.log(photoPath);
-      addProductToCart(id, name, photoPath);
+      let photoPath = document.getElementById(`img-${id}`).attributes[0].nodeValue // Obtener la ruta de la imagen del producto
+      // console.log(quantity);
+      let quantity = document.getElementById(`quantity-${id}`).value // Obtener la cantidad de unidades del producto
+      // console.log(quantity);
+      addProductToCart(id, name, photoPath, quantity);
       Toastify({
         text: 'Producto agregado',
         duration: 5000,
@@ -85,12 +88,11 @@ function sendMail(event) {
   } else {
     const productsData = products.map(product => ({
       id: product.id,
-      name: product.name
+      name: product.name,
+      quantity: product.quantity
     }))
 
-    fetch(
-      'https://www.cerratex.com.ar/api/mail', 
-      {
+    fetch('https://www.cerratex.com.ar/api/mail', {
       method: 'POST',
       headers: {
         'content-type': 'application/json; charset=UTF-8'
@@ -104,13 +106,12 @@ function sendMail(event) {
       })
     })
       .then((res) => {
-        console.log(res.status, res.statusText, res);
-
         if (res.status === 200 ||
           res.status === 204) {
+          // Show notification
           Toastify({
-            text: 'Correo enviado',
-            duration: 5000,
+            text: 'Pedido enviado, un asesor se contactará contigo',
+            duration: 2000,
             close: true,
             gravity: 'top',
             position: 'right',
@@ -121,10 +122,12 @@ function sendMail(event) {
           }).showToast()
 
           // Empty cart and reload page
-          products = [];
-          localStorage.clear();
-          updateProductsStorage();
-          window.location.reload();
+          setTimeout(() => {
+            products = [];
+            localStorage.clear();
+            updateProductsStorage();
+            window.location.reload();
+          }, 2500)
         } else {
           Toastify({
             text: 'Error al enviar el correo',
@@ -142,9 +145,14 @@ function sendMail(event) {
   }
 }
 
-function addProductToCart(id, name, photoPath) {
-  let product = new Product(id, name, photoPath)
-  products.push(product)
+function addProductToCart(id, name, photoPath, quantity) {
+  let existingProduct = products.find(product => product.id === id);
+  if (existingProduct) {
+    existingProduct.quantity += parseInt(quantity);
+  } else {
+    let product = new Product(id, name, photoPath, parseInt(quantity));
+    products.push(product);
+  }
   updateProductsStorage()
 }
 
@@ -153,7 +161,7 @@ function createCardInCart() {
     productsContainer.innerHTML = '';
     products.forEach((product) => {
       let column = document.createElement('div');
-      column.className = 'col-lg-4 col-sm-5 portfolio-item filter-app m-3';
+      column.className = 'col-lg-4 col-md-6 col-sm-5';
       column.id = `column-${product.id}`;
       column.innerHTML = `
               <img src="${product.photo}" class="img-fluid" alt="Imagen del producto" id="img-${product.id}">
@@ -164,6 +172,7 @@ function createCardInCart() {
                   class="portfolio-details-lightbox details-link" title="Detalles de producto"><i
                     class="bx bx-plus"></i></a>
                 </a>
+                <p id="artQuantity-${product.id}-${product.quantity}">Cantidad: ${product.quantity.toLocaleString("es-AR")}</p>
               </div>
               <div class="card-footer">
                 <button class="btn btn-danger" id="deleteButton-${product.id}">Eliminar</button>
@@ -187,12 +196,12 @@ function deleteProduct(productId) {
 
   products.splice(deleteIndex, 1);
 
-  console.log(products);
-  console.log(localStorage);
-
   deleteColumn.remove();
   localStorage.clear()
   updateProductsStorage();
+
+  console.log(products);
+  console.log(localStorage);
 
   Toastify({
     text: 'Producto eliminado',
@@ -266,7 +275,7 @@ main();
   }
 
   /**
-   * Easy on scroll event listener 
+   * Easy on scroll event listener
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)

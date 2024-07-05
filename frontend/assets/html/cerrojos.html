@@ -60,18 +60,9 @@
       <!-- ======= Navbar ======= -->
       <nav id="navbar" class="navbar">
         <ul>
-          <li>
-            <a class="nav-link scrollto" href="../../index.html">Home</a>
-          </li>
-          <li>
-            <a class="nav-link scrollto" href="about.html">Quiénes Somos</a>
-          </li>
           <li class="dropdown">
-            <a href="productos.html">Productos<i class="bi bi-chevron-down"></i></a>
+            <a href="../../index.html">Productos<i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li>
-                <a href="accesorios.html">Accesorios</a>
-              </li>
               <li>
                 <a href="exterior.html">Cerraduras de exterior</a>
               </li>
@@ -96,7 +87,16 @@
               <li>
                 <a href="roldanas.html">Roldanas</a>
               </li>
+              <li>
+                <a href="accesorios.html">Accesorios</a>
+              </li>
             </ul>
+          </li>
+          <li>
+            <a class="nav-link scrollto" href="about.html">Quiénes Somos</a>
+          </li>
+          <li>
+            <a class="nav-link scrollto" href="condiciones.html">Condiciones de Venta</a>
           </li>
           <li>
             <a class="nav-link scrollto" href="#contact">Contacto</a>
@@ -150,6 +150,9 @@
                 class="portfolio-details-lightbox details-link" title="Detalles de producto">
                 <i class="bx bx-plus"></i>
               </a>
+              <label for="quantity-400">Ingrese cantidad: </label>
+              <input class="quantity-selector" id="quantity-400">
+              </input>
               <a href="#" data-gallery="portfolioGallery" class="preview-link" title="Añadir al carrito" id="addToCart">
                 <img src="../img/carrito-de-compras.svg" alt="Carrito" class="portfolio-cart-img" id="prod-400">
               </a>
@@ -167,6 +170,9 @@
                 class="portfolio-details-lightbox details-link" title="Detalles de producto">
                 <i class="bx bx-plus"></i>
               </a>
+              <label for="quantity-401">Ingrese cantidad: </label>
+              <input class="quantity-selector" id="quantity-401">
+              </input>
               <a href="#" data-gallery="portfolioGallery" class="preview-link" title="Añadir al carrito" id="addToCart">
                 <img src="../img/carrito-de-compras.svg" alt="Carrito" class="portfolio-cart-img" id="prod-401">
               </a>
@@ -184,6 +190,9 @@
                 class="portfolio-details-lightbox details-link" title="Detalles de producto">
                 <i class="bx bx-plus"></i>
               </a>
+              <label for="quantity-650">Ingrese cantidad: </label>
+              <input class="quantity-selector" id="quantity-650">
+              </input>
               <a href="#" data-gallery="portfolioGallery" class="preview-link" title="Añadir al carrito" id="addToCart">
                 <img src="../img/carrito-de-compras.svg" alt="Carrito" class="portfolio-cart-img" id="prod-650">
               </a>
@@ -196,11 +205,14 @@
             <img src="../img/cerrojos/652.png" class="img-fluid" alt="Imagen del producto" id="img-652">
             <div class="portfolio-info">
               <h4 id="artId-652">Art. 652</h4>
-              <p id="artName-652">Cerrojo Corredizo</p>
+              <p id="artName-652">Cerrojo Corredizo.</p>
               <a href="652.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external"
                 class="portfolio-details-lightbox details-link" title="Detalles de producto">
                 <i class="bx bx-plus"></i>
               </a>
+              <label for="quantity-652">Ingrese cantidad: </label>
+              <input class="quantity-selector" id="quantity-652">
+              </input>
               <a href="#" data-gallery="portfolioGallery" class="preview-link" title="Añadir al carrito" id="addToCart">
                 <img src="../img/carrito-de-compras.svg" alt="Carrito" class="portfolio-cart-img" id="prod-652">
               </a>
@@ -262,7 +274,7 @@
 
           <!-- ======= Contact Form ======= -->
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="../../forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
@@ -318,8 +330,8 @@
   <!-- End Vendor JS Files -->
 
   <!-- ======= Template JS Files ======= -->
-  <script src="../js/main.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="../js/main.js"></script>
   <!-- End Template JS Files -->
 
 </body>

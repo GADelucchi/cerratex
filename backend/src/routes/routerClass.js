@@ -26,39 +26,20 @@ class RouterClass {
         })
     }
 
-    generateCustomResponse = (req, res, next) => {
-        res.sendSuccess = payload => res.status(200).send({ status: 'Success', payload })
-        res.sendServerError = error => res.status(500).send({ status: 'Error', error })
-        res.sendUserError = error => res.send({ status: 'Error', error })
-        next()
+    get(path, ...callbacks) {
+        this.router.get(path, this.applyCallbacks(callbacks))
     }
 
-    handlePolicies = policies => (req, res, next) => {
-        if (policies[0] === 'PUBLIC') return next()
-
-        const authCookie = req.cookies.accessToken
-        if (!authCookie) return res.status(401).send({status: 'Error', error: 'No authorization cookie detected'})
-
-        const user = jwt.verify(authCookie, jwtPrivateKey)
-        if (!policies.includes(user.user.role.toUpperCase())) return res.status(403).send({status: 'Error', error: 'Not permission'})
-        req.user = user
-        next()
+    post(path, ...callbacks) {
+        this.router.post(path, this.applyCallbacks(callbacks))
     }
 
-    get(path, policies, ...callbacks) {
-        this.router.get(path, this.handlePolicies(policies), this.generateCustomResponse, this.applyCallbacks(callbacks))
+    put(path, ...callbacks) {
+        this.router.put(path, this.applyCallbacks(callbacks))
     }
 
-    post(path, policies, ...callbacks) {
-        this.router.post(path, this.handlePolicies(policies), this.generateCustomResponse, this.applyCallbacks(callbacks))
-    }
-
-    put(path, policies, ...callbacks) {
-        this.router.put(path, this.handlePolicies(policies), this.generateCustomResponse, this.applyCallbacks(callbacks))
-    }
-
-    delete(path, policies, ...callbacks) {
-        this.router.delete(path, this.handlePolicies(policies), this.generateCustomResponse, this.applyCallbacks(callbacks))
+    delete(path, ...callbacks) {
+        this.router.delete(path, this.applyCallbacks(callbacks))
     }
 }
 

@@ -6,30 +6,30 @@ const { RouterClass } = require('./routerClass')
 // Code
 class MailRouter extends RouterClass {
   init() {
-    this.post('/', ['PUBLIC'], async (req, res) => {
+    this.post('/', async (req, res) => {
       try {
         console.log(req.body);
         const { name, lastName, phoneNumber, email, products } = req.body
 
         let mailContent = `
               <h2>Cliente:</h2>
-                <p>Nombre: ${name}</p>
-                <p>Apellido: ${lastName}</p>
-                <p>Teléfono: ${phoneNumber}</p>
-                <p>Correo: ${email}</p>
-                
+                <p><strong>Nombre:</strong> ${name}</p>
+                <p><strong>Apellido:</strong> ${lastName}</p>
+                <p><strong>Teléfono:</strong> ${phoneNumber}</p>
+                <p><strong>Correo:</strong> ${email}</p>
+
                 <h2>Productos:</h2>
                 <ul>`
 
         products.forEach(product => {
-          mailContent += `<li>ID: ${product.id} - Nombre: ${product.name}</li>`;
+          mailContent += `<li><strong>Artículo:</strong> ${product.id} - <strong>Nombre:</strong> ${product.name} - <strong>Cantidad:</strong> ${product.quantity}</li>`;
         });
 
         mailContent += '</ul>'
 
         await sendMail(mailReceiver, 'Nuevo pedido realizado', mailContent)
 
-        res.tstaus(200).send('Correo enviado')
+        res.staus(204).send('Correo enviado')
       } catch (error) {
         res.sendServerError(error)
         throw new Error(error)

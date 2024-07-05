@@ -16,7 +16,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Cerratex - Carrito</title>
+  <title>Cerratex - Cerraduras Ventanas</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -28,15 +28,6 @@
   <!-- ======= Google Fonts ======= -->
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pridi:wght@200;300;400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Pridi:wght@200;300;400;500;600;700&display=swap"
     rel="stylesheet">
   <!-- End Google Fonts -->
 
@@ -64,7 +55,7 @@
       <a href="../../index.html" class="logo">
         <img src="../img/logo4.png" alt="" class="img-fluid">
       </a>
-      <!-- End Logo -->
+      <!-- Logo -->
 
       <!-- ======= Navbar ======= -->
       <nav id="navbar" class="navbar">
@@ -85,7 +76,7 @@
                 <a href="placards.html">Cerraduras para placards</a>
               </li>
               <li>
-                <a href="ventanas.html">Cerraduras de ventanas</a>
+                <a href="ventanas.html" class="active">Cerraduras de ventanas</a>
               </li>
               <li>
                 <a href="cerrojos.html">Cerrojos</a>
@@ -118,7 +109,7 @@
         </ul>
         <img src="../img/menu.svg" alt="Menu" class="bi bi-list mobile-nav-toggle">
       </nav>
-      <!-- End Navbar -->
+      <!-- Navbar -->
 
       <!-- ======= Social Links ======= -->
       <div class="header-social-links d-flex">
@@ -128,7 +119,7 @@
         <a href="https://www.instagram.com/cerraduras_cerratex/?igsh=MWRiZnQ5M2VkOWpsMg%3D%3D&utm_source=qr"
           class="instagram"><i class="bu bi-instagram"></i></a>
       </div>
-      <!-- End Social Links -->
+      <!-- Social Links -->
 
     </div>
   </header>
@@ -136,61 +127,31 @@
 
   <!-- ======= Main ======= -->
   <main>
-    <!-- ======= Cart Section ======= -->
-    <section id="cart" class=" ">
-      <div class="container text-center">
+
+    <!-- ======= Conditions ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
 
         <!-- ======= Title ======= -->
-        <div class="section-title cart_title">
-          <h2>Carrito</h2>
-          <p>VENTA MAYORISTA (únicamente comprando 10 artículos o más)<br>Corroborar los detalles en la sección "Condiciones de Venta”</p>
+        <div class="section-title">
+          <h2>Condiciones de Venta</h2>
         </div>
-        <!-- End Title -->
+        <!-- End Header -->
 
-        <!-- ======= Products ======= -->
-        <div class="row container d-flex justify-content-center" id="productsContainer">
+        <!-- ======= Text ======= -->
+        <div class="row portfolio-container">
+          <ul class="conditionList">
+            <li>Pedido mínimo: 10 unidades en un mismo artículo o en distintos artículos.</li>
+            <li>Únicamente a monotributistas o responsables inscríptos; no atendemos a consumidores finales.</li>
+            <li>Envíos al interios del país: a cargo del comprador.</li>
+            <li>Envíos a capital federal y Gran Buenos Aires: GRATIS a partir de $200.000 pesos argentinos.</li>
+          </ul>
         </div>
-        <!-- End Products -->
-
-        <!-- ======= Client Info ======= -->
-        <div class="row m-5">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Por favor complete los siguientes campos</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Nuestros asesores de venta se pondrán en contacto</h6>
-              <form id="clientForm">
-                <div class="input-group input-group-sm mb-3">
-                  <span class="input-group-text col-lg-1 col-md-2" id="inputGroup-sizing-sm">Nombre:</span>
-                  <input type="text" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-sm" name="name" id="inputName" placeholder="Nombre" required>
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                  <span class="input-group-text col-lg-1 col-md-2" id="inputGroup-sizing-sm">Apellido:</span>
-                  <input type="text" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-sm" name="lastName" id="inputLastName" placeholder="Apellido"
-                    required>
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                  <span class="input-group-text col-lg-1 col-md-2" id="inputGroup-sizing-sm">Correo:</span>
-                  <input type="email" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-sm" name="email" id="inputEmail"
-                    placeholder="juanperez@ejemplo.com" required>
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                  <span class="input-group-text col-lg-1 col-md-2" id="inputGroup-sizing-sm">Teléfono:</span>
-                  <input type="tel" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-sm" name="phoneNumber" id="inputNumber" placeholder="1123456789"required>
-                </div>
-                <button type="submit" class="btnEnviarPedido">Enviar pedido</button>
-              </form>
-            </div>
-          </div>
-        </div>
-        <!-- End Client Info -->
+        <!-- End Text -->
 
       </div>
     </section>
-    <!-- End Cart Section -->
+    <!-- End Conditions -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -206,7 +167,7 @@
         <div class="row">
 
           <!-- ======= Info Box ======= -->
-          <div class="col-lg-6">
+          <div class="cli-lg-6">
             <div class="row">
               <div class="col-md-12">
                 <div class="info-box">
@@ -230,7 +191,6 @@
                     frameborder="0" style="border:0; width: 100%; height: 200px;" allowfullscreen>
                   </iframe>
                   <!-- End Map -->
-
                 </div>
               </div>
             </div>
@@ -256,9 +216,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Tu mensaje se envió exitosamente!</div>
               </div>
-              <div class="text-center">
-                <button type="submit">Enviar</button>
-              </div>
+              <div class="text-center"><button type="submit">Enviar</button></div>
             </form>
           </div>
           <!-- End Contact Form -->

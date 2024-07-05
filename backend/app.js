@@ -10,12 +10,13 @@ const { port } = require('./process/config')
 // Instancia
 const app = express()
 
-// Configuración
+// Config
 app.set('views', __dirname + '/views')
 app.set('view engine', 'handlebars')
 
 app.use(express.json())
 app.use(cors({
+    origin: '*',
     methods: 'POST',
     allowedHeaders: 'content-type',
     preflightContinue: false,
