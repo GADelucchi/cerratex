@@ -36,18 +36,6 @@ function eventInitializer() {
       let quantity = document.getElementById(`quantity-${id}`).value // Obtener la cantidad de unidades del producto
       // console.log(quantity);
       addProductToCart(id, name, photoPath, quantity);
-      Toastify({
-        text: 'Producto agregado',
-        duration: 5000,
-        close: true,
-        gravity: 'top',
-        position: 'right',
-        stopOnFocus: true,
-        style: {
-          background: '#99E600'
-        }
-      }).showToast()
-      console.log('Producto añadido al carrito');
     };
   })
 
@@ -124,7 +112,6 @@ function sendMail(event) {
           // Empty cart and reload page
           setTimeout(() => {
             products = [];
-            localStorage.clear();
             updateProductsStorage();
             window.location.reload();
           }, 2500)
@@ -146,14 +133,40 @@ function sendMail(event) {
 }
 
 function addProductToCart(id, name, photoPath, quantity) {
-  let existingProduct = products.find(product => product.id === id);
-  if (existingProduct) {
-    existingProduct.quantity += parseInt(quantity);
+  if (quantity) {
+    let existingProduct = products.find(product => product.id === id);
+    if (existingProduct) {
+      existingProduct.quantity += parseInt(quantity);
+    } else {
+      let product = new Product(id, name, photoPath, parseInt(quantity));
+      products.push(product);
+    }
+    Toastify({
+      text: 'Producto agregado',
+      duration: 5000,
+      close: true,
+      gravity: 'top',
+      position: 'right',
+      stopOnFocus: true,
+      style: {
+        background: '#99E600'
+      }
+    }).showToast()
+    console.log('Producto añadido al carrito')
+    updateProductsStorage()
   } else {
-    let product = new Product(id, name, photoPath, parseInt(quantity));
-    products.push(product);
+    Toastify({
+      text: 'Debés ingresar una cantidad',
+      duration: 5000,
+      close: true,
+      gravity: 'top',
+      position: 'right',
+      stopOnFocus: true,
+      style: {
+        background: '#E60000'
+      }
+    }).showToast()
   }
-  updateProductsStorage()
 }
 
 function createCardInCart() {
@@ -197,7 +210,6 @@ function deleteProduct(productId) {
   products.splice(deleteIndex, 1);
 
   deleteColumn.remove();
-  localStorage.clear()
   updateProductsStorage();
 
   console.log(products);
@@ -218,7 +230,6 @@ function deleteProduct(productId) {
 
 function updateProductsStorage() {
   let productsJSON = JSON.stringify(products);
-  localStorage.clear()
   localStorage.setItem('products', productsJSON);
 }
 
