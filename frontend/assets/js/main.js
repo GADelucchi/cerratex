@@ -182,8 +182,11 @@ function createCardInCart() {
                 <h4 id="artId-${product.id}" class="col">Art. ${product.id}</h4>
                 <p id="artName-${product.id}" class="col">${product.name}</p>
                 <a href="${product.id}.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external"
-                  class="portfolio-details-lightbox details-link" title="Detalles de producto"><i
-                    class="bx bx-plus"></i></a>
+                  class="portfolio-details-lightbox details-link" title="Detalles de producto">
+                  <div>
+                    <i class="bx bx-plus"></i>
+                    <span>info</span>
+                  </div>
                 </a>
                 <p id="artQuantity-${product.id}-${product.quantity}">Cantidad: ${product.quantity.toLocaleString("es-AR")}</p>
               </div>
@@ -483,14 +486,14 @@ main();
   });
 
   /**
-   * Initiate portfolio lightbox 
+   * Initiate portfolio lightbox
    */
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
   });
 
   /**
-   * Initiate portfolio details lightbox 
+   * Initiate portfolio details lightbox
    */
   const portfolioDetailsLightbox = GLightbox({
     selector: '.portfolio-details-lightbox',
