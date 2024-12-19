@@ -9,6 +9,6 @@ commander.parse()
 console.log('Options: ', commander.opts())
 console.log('Remaining arguments: ', commander.args);
 
-module.exports = { 
+module.exports = {
     commander
 }
