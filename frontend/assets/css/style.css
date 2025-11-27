@@ -374,7 +374,7 @@ h1, h2, h3, h4, h5, h6 {
 # About Us Section
 --------------------------------------------------------------*/
 .about {
-    margin-top: 50px;
+    margin-top: 150px;
 }
 
 .about h3 {
@@ -719,7 +719,7 @@ h1, h2, h3, h4, h5, h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  margin-top: 200px;
+  margin-top: 250px;
 }
 
 .section-bg {
